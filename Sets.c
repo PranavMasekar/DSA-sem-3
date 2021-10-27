@@ -1,5 +1,5 @@
 #include <stdio.h>
-int SIZE = 5;
+int SIZE = 7;
 void swap(int *p, int *q)
 {
     int temp = *p;
