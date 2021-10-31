@@ -6,27 +6,6 @@ void swap(int *p, int *q)
     *p = *q;
     *q = temp;
 }
-void bubblesort(int *arr, int n)
-{
-    int sorted = 0;
-    
-    for (int i = 0; i < n; i++) //For number of passes
-    {
-        sorted = 1;
-        for (int j = 0; j < n - 1 - i; j++) //For number of comparison
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                swap(&arr[j], &arr[j + 1]);
-                sorted = 0;
-            }
-        }
-        if (sorted)
-        { //Making bubble sort adaptive
-            return;
-        }
-    }
-}
 void getdata(int *ptr)
 {
     for (int i = 0; i < SIZE; i++)
@@ -177,8 +156,6 @@ int main()
     getdata(arr1);
     printf("Enter the Second Set :\n");
     getdata(arr2);
-    bubblesort(arr1, SIZE);
-    bubblesort(arr2, SIZE);
     display(arr1, SIZE);
     display(arr2, SIZE);
 
@@ -214,10 +191,5 @@ int main()
         printf("Do you want to perform another operation (1) or (0)");
         scanf("%d", &r);
     }
-
-    // Uni(arr1,arr2);
-    // intersection(arr1,arr2);
-    // difference(arr1, arr2);
-    // symmetric(arr1, arr2);
     return 0;
 }
