@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+int n;
 struct player
 {
     char name[20];
@@ -15,6 +16,7 @@ void acceptdata(struct player e[], int n)
         printf("Enter the name,avg,highest score of the player \n");
         scanf(" %s %f %d", &e[i].name, &e[i].avg, &e[i].highestscore);
     }
+    n++;
 }
 void writetofile(struct player e[], int n)
 {
@@ -46,26 +48,23 @@ void readfile(int n)
         printf("Error");
         return;
     }
-    else
+    else 
     {
         for (int i = 0; i < n; i++)
         {
             fscanf(fp, "%s %f %d", &commingdata.name, &commingdata.avg, &commingdata.highestscore);
             fputs("\n", fp);
+            printf("%s %f %d \n", commingdata.name, commingdata.avg, commingdata.highestscore);
         }
     }
     fclose(fp);
-    for (int i = 0; i < n; i++)
-    {
-        printf("%s %f %d \n", commingdata.name, commingdata.avg, commingdata.highestscore);
-    }
 }
 
 void search(int n)
 {
     FILE *fp;
     fp = fopen("data.txt", "r");
-    struct player commingdata[n];
+    struct player commingdata[10];
     if (fp == NULL)
     {
         printf("Error");
@@ -143,19 +142,52 @@ void delete ()
 
     }
     fclose(f2);
+    n--;
 }
 
 
 int main()
 {
     struct player e[50];
-    int n;
+    int r = 1;
     printf("enter the total number of Players ");
     scanf("%d", &n);
+    while (r)
+    {
+        printf("\nEnter the choice :\n");
+        printf(" 1:Accept the data\n 2:Write to the file\n 3:Read the file\n 4:Search in the file\n 5:Delete from the file\n");
+
+        int choice;
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            acceptdata(e,n);
+            break;
+        case 2:
+            writetofile(e,n);
+            break;
+        case 3:
+            readfile(n);
+            break;
+        case 4:
+            search(n);
+            break;
+        case 5:
+            delete(e,n);
+            break;
+        default :
+            printf("Wrong choice");
+            break;
+        }
+
+        printf("Do you want to perform another operation (1) or (0)");
+        scanf("%d", &r);
+    }
     // acceptdata(e,n);
     // writetofile(e,n);
     // readfile(n);
     // search(n);
-    // delete(e,n);
+    
     return 0;
 }

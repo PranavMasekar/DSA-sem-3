@@ -30,7 +30,7 @@ void display(int *ptr, int size)
 void Uni(int *p, int *q)
 {
     int x = 2 * SIZE;
-    int arr[x];
+    int arr[10];
     int temp = 0;
 
     int i, j, k = 0;
@@ -63,7 +63,7 @@ void Uni(int *p, int *q)
 
 void intersection(int *p, int *q)
 {
-    int ans[SIZE];
+    int ans[5];
     int k = 0;
     int element;
     for (int i = 0; i < SIZE; i++)
@@ -85,7 +85,7 @@ int difference(int *p, int *q)
 {
     int count = 0;
     int size = 0;
-    int temp[SIZE];
+    int temp[5];
     for (int i = 0; i < SIZE; i++)
     {
         count = 0;
@@ -109,7 +109,7 @@ void symmetric(int *p, int *q)
 {
     int count = 0;
     int size = 0;
-    int temp[2 * SIZE];
+    int temp[2 * 5];
     for (int i = 0; i < SIZE; i++)
     {
         count = 0;
@@ -151,7 +151,7 @@ void symmetric(int *p, int *q)
 int main()
 {
     int r = 1;
-    int arr1[SIZE], arr2[SIZE];
+    int arr1[5], arr2[5];
     printf("Enter the First Set :\n");
     getdata(arr1);
     printf("Enter the Second Set :\n");
