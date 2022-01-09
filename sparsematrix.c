@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+int T[100][3];
+int T1[100][3];
 void display(int *A, int m, int n)
 {
     printf("\n");
@@ -12,8 +13,17 @@ void display(int *A, int m, int n)
     printf("\n");
 }
 
-int T[100][3];
-int T1[100][3];
+void accept(int *A, int m, int n)
+{
+    printf("\n");
+    for (int i = 0; i < m; i++)
+        for (int j = 0; j < n; j++)
+        {
+            printf("A[%d][%d] = ", i, j);
+            scanf("%d", &*(A++));
+        }
+    printf("\n");
+}
 
 void convert(int *A, int m, int n)
 {
@@ -36,41 +46,20 @@ void convert(int *A, int m, int n)
     display(T[0], k, 3);
 }
 
-void _convert(int *A, int m, int n)
+void fastTranspose()
 {
-    T1[0][0] = m;
-    T1[0][1] = n;
-    int k = 1;
-    for (int i = 0; i < m; i++)
-        for (int j = 0; j < n; j++)
-        {
-            if (*(A) != 0)
-            {
-                T1[k][0] = i;
-                T1[k][1] = j;
-                T1[k++][2] = *A;
-            }
-            *(A++);
-        }
-    T1[0][2] = k - 1;
-
-    display(T1[0], k, 3);
-}
-
-void FastTranspose()
-{
-    int Result[100][3], total[T[0][1]], index[(T[0][1]) + 1];
+    int Result[100][3], total[50], index[50];
     for (int i = 0; i < T[0][1]; i++)
         total[i] = 0;
-    for (int i = 1; i <= T[0][2]; i++)
+    for (int i = 1; i < T[0][2]; i++)
         total[T[i][1]]++;
     index[0] = 1;
-    for (int i = 1; i <= T[0][1]; i++)
+    for (int i = 1; i < T[0][1]; i++)
         index[i] = index[i - 1] + total[i - 1];
     Result[0][0] = T[0][1];
     Result[0][1] = T[0][0];
     Result[0][2] = T[0][2];
-    for (int i = 1; i <= T[0][2]; i++)
+    for (int i = 1; i < T[0][2]; i++)
     {
         int loc = index[T[i][1]];
         Result[loc][0] = T[i][1];
@@ -88,26 +77,20 @@ void FastTranspose()
     }
 }
 
-void getdata(int *A, int m, int n)
+void addition(int *A, int m, int n)
 {
-    printf("\n");
-    for (int i = 0; i < m; i++)
-        for (int j = 0; j < n; j++)
-        {
-            printf("A[%d][%d] = ", i, j);
-            scanf("%d", &*(A++));
-        }
-    printf("\n");
-}
-
-void add(int *A, int m, int n)
-{
-    int S1[m][n], add[100][3];
+    int addition[100][3];
     int c1 = 1, c2 = 1, cm = 0;
-    getdata(S1[0], m, n);
-    _convert(S1[0], m, n);
-    add[0][0] = m;
-    add[0][1] = n;
+    // accept(S1[0], m, n);
+    int S1[4][4] = {
+        {0,0,1,2},
+        {7,0,0,0},
+        {0,3,0,2},
+        {9,0,0,1},
+    };
+    convert(S1[0], m, n);
+    addition[0][0] = m;
+    addition[0][1] = n;
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -116,9 +99,9 @@ void add(int *A, int m, int n)
             if (T[c1][0] == i && T[c1][1] == j)
             {
                 cm++;
-                add[cm][0] = i;
-                add[cm][1] = j;
-                add[cm][2] = T[c1][2];
+                addition[cm][0] = i;
+                addition[cm][1] = j;
+                addition[cm][2] = T[c1][2];
                 c1++;
                 flag = 1;
             }
@@ -127,18 +110,17 @@ void add(int *A, int m, int n)
                 if (!flag)
                 {
                     cm++;
-                    add[cm][2] = 0;
+                    addition[cm][2] = 0;
                 }
-                add[cm][0] = i;
-                add[cm][1] = j;
-                add[cm][2] += T1[c2][2];
+                addition[cm][0] = i;
+                addition[cm][1] = j;
+                addition[cm][2] += T1[c2][2];
                 c2++;
             }
         }
     }
-    add[0][2] = cm;
-    printf("\n\t After Adding\n");
-    display(add[0], cm +1 , 3);
+    addition[0][2] = cm;
+    display(addition[0], cm +1 , 3);
 }
 
 int main()
@@ -146,16 +128,21 @@ int main()
     int m, n;
     printf("Enter no. of rows and columns : ");
     scanf("%d%d", &m, &n);
-    int S[m][n];
+    int S[4][4] = {
+        {0,0,1,2},
+        {7,0,0,0},
+        {0,3,0,2},
+        {9,0,0,1},
+    };
     while (1)
     {
         int choice = 0;
-        printf("1. getdata\n2. Display\n3. Convert\n4. FAST-TRANPOSE\n5. Add\n6. Exit\n");
+        printf("1. Accept\n2. Display\n3. Convert\n4. FastTranspose\n5. Addition\n6. Exit\n");
         scanf("%d", &choice);
         switch (choice)
         {
         case 1:
-            getdata(S[0], m, n);
+            accept(S[0], m, n);
             break;
         case 2:
             display(S[0], m, n);
@@ -164,17 +151,17 @@ int main()
             convert(S[0], m, n);
             break;
         case 4:
-            FastTranspose();
+            fastTranspose();
             break;
         case 5:
-            add(S[0], m, n);
+            addition(S[0], m, n);
             break;
         case 6:
             return 0;
-            break;
         default:
             printf("Invalid choice");
         }
     }
+
     return 0;
 }
