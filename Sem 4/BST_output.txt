@@ -1,0 +1,99 @@
+Enter root value of tree 9
+Number of nodes in tree :6
+enter number 11
+enter number 13
+enter number 14
+enter number 16
+enter number 17
+enter number 18
+
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :1
+Enter the number which you want to insert 20
+
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :5
+9 11 13 14 16 17 18 20 
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :2
+Enter value 20
+
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :5
+9 11 13 14 16 17 18 
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :3
+Enter the number which you want to search 13
+ key is present 
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :6
+9 
+11 
+13 
+14 
+16 
+17 
+18 
+
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :4
+18 17 16 14 13 11 9 
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :5
+18 17 16 14 13 11 9 
+ 1. insert 
+ 2. delete 
+ 3. searching element 
+ 4. mirror img
+ 5. display 
+ 6. display level order
+ 7. exit
+        ENTER YOUR CHOICE :7
