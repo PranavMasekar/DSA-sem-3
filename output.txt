@@ -1,0 +1,51 @@
+Enter the number of vertices 5
+Enter the type of the graph (1. Undirected ) (2. Directed ):1
+Enter the edge :1 2
+Enter do you want to continue :1
+Enter the edge :1 4
+Enter do you want to continue :1
+Enter the edge :2 1
+Enter do you want to continue :1
+Enter the edge :2 3
+Enter do you want to continue :1
+Enter the edge :2 4
+Enter do you want to continue :1
+Enter the edge :3 2
+Enter do you want to continue :1
+Enter the edge :3 4
+Enter do you want to continue :1
+Enter the edge :3 5 
+Enter do you want to continue :1
+Enter the edge :4 1
+Enter do you want to continue :1
+Enter the edge :4 2
+Enter do you want to continue :1
+Enter the edge :4 3
+Enter do you want to continue :1
+Enter the edge :4 5
+Enter do you want to continue :1
+Enter the edge :5 3
+Enter do you want to continue :1
+Enter the edge :5 4
+Enter do you want to continue :0
+
+Adjacency matrix 
+ 0 0 0 0 0
+ 0 0 1 0 1
+ 0 1 0 1 1
+ 0 0 1 0 1
+ 0 1 1 1 0
+
+1.B.F.S
+2.D.F.S
+Enter choice 1
+Enter the source vertex :1
+ 1 2 4 3
+Do u want to continue(Y/N) ? :y
+
+1.B.F.S
+2.D.F.S
+Enter choice 2
+Enter the source vertex :1
+1 4 3 2 
+Do u want to continue(Y/N) ? :n
