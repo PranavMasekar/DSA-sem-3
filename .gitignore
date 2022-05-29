@@ -1,4 +1,5 @@
 # dependecies
 *.exe
 *.json
+*.class
 tempCodeRunnerFile.c
