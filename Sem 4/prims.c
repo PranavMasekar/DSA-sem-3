@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #define MAX 20
-#define INF 9999999
+#define INF 1e5+10
 void Create_Graph(int a[20][20], int n){
     int v1, v2, f, c;
     printf("Enter 1 for unidirected graph else enter 0 : ");

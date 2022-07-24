@@ -3,34 +3,26 @@
 
 int q[MAX],top=-1,front=-1,rear=-1,stack[MAX];
 
-void Create(int a[20][20],int n) {
-	int flag,v1,v2,choice;
-	printf("Enter the type of the graph (1. Undirected ) (2. Directed ):");
-	scanf("%d",&flag);
-	
-	do
-	{
-		printf("Enter the edge :");
-		scanf("%d %d",&v1,&v2);
-		a[v1][v2]=1;
-		if(flag==1)
-		{
-			a[v2][v1]=1;
-		}
-		printf("Enter do you want to continue :");
-		scanf("%d",&choice);
-	}while(choice==1);
+int isStackEmpty() {
+	if(top==-1)
+		return 1;
+	return 0;
 }
-void Display(int a[20][20],int n) {
-	int i,j;
-	printf("\nAdjacency matrix \n");
-	for(i=0;i<n;i++)
+
+void push(int item) {
+	if(top==MAX-1)
+		printf("Stack overflow ");
+	else
+		stack[++top]=item;
+}
+int pop() {
+	int k;
+	if(top==-1)
+		return(0);
+	else
 	{
-		for(j=0;j<n;j++)
-		{
-			printf(" %d",a[i][j]);
-		}
-		printf("\n");
+		k=stack[top--];
+		return(k);
 	}
 }
 int delete() {
@@ -62,33 +54,38 @@ void add(int item)
 			q[++rear]=item;
 	}
 }
-int isStackEmpty() {
-	if(top==-1)
-		return 1;
-	return 0;
-}
-
-void push(int item) {
-	if(top==MAX-1)
-		printf("Stack overflow ");
-	else
-		stack[++top]=item;
-}
-int pop() {
-	int k;
-	if(top==-1)
-		return(0);
-	else
-	{
-		k=stack[top--];
-		return(k);
-	}
-}
-
 int is_queue_empty() {
 	if(front==-1)
 		return 1;
 	return 0;
+}
+void Create(int a[20][20],int n) {
+	int flag,v1,v2,choice;
+	printf("Enter the type of the graph (1. Undirected ) (2. Directed ):");
+	scanf("%d",&flag);
+	do{
+		printf("Enter the edge :");
+		scanf("%d %d",&v1,&v2);
+		a[v1][v2]=1;
+		if(flag==1)
+		{
+			a[v2][v1]=1;
+		}
+		printf("Enter do you want to continue :");
+		scanf("%d",&choice);
+	}while(choice==1);
+}
+void Display(int a[20][20],int n) {
+	int i,j;
+	printf("\nAdjacency matrix \n");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf(" %d",a[i][j]);
+		}
+		printf("\n");
+	}
 }
 void BFS(int a[20][20],int s,int n) {
 	int v1,v2,i,vis[MAX]={};

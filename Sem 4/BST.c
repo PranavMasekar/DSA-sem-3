@@ -13,7 +13,7 @@ struct node *newNode(int data)
     node->data = data;
     node->left = NULL;
     node->right = NULL;
-    return (node);
+    return node;
 }
 struct node *search(struct node *root, int key)
 {
@@ -236,6 +236,8 @@ int main()
             lever_order_traversal(root);
             break;
         }
+        case 7:
+            break;
         }
     } while (ch != 6);
 }
